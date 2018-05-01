@@ -1,0 +1,26 @@
+{
+  "extends": "airbnb",
+  "parserOptions": {
+    "sourceType": "module"
+  },
+  "globals": {    
+    "describe": true,
+    "beforeEach": true,
+    "before": true,
+    "afterEach": true,
+    "after": true,
+    "it": true
+  },
+  "rules": {
+    "comma-dangle": ["error", {
+      "arrays": "always-multiline",
+      "objects": "always-multiline",
+      "imports": "always-multiline",
+      "exports": "always-multiline",
+      "functions": "only-multiline"
+    }],
+    "object-curly-newline": ["error", { "consistent": true }],
+    "arrow-parens": [2, "as-needed"],
+    "function-paren-newline": 0
+  }
+}

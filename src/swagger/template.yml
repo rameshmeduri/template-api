@@ -1,0 +1,79 @@
+---
+openapi: 3.0.0
+info:
+  version: 1.0.0
+  title: Template API
+  description: Microservice API
+servers:
+- url: https://{server_url}/
+  variables:
+    server_url:
+      description: Server URL prodvided by the support team
+      default: ''
+paths:
+  "/up":
+    get:
+      description: Health Check
+      responses:
+        '200':
+          description: Uptime in seconds
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  uptime:
+                    type: string
+  "/version":
+    get:
+      description: Version Check
+      responses:
+        '200':
+          description: App name and version
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                    description: App name
+                  version:
+                    type: string
+                    description: App version
+  "/template":
+    post:
+      description: Template Actions
+      responses:
+        '200':
+          description: Success
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    description: Bad request
+        '401':
+          description: Unauthorized access
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    description: Unauthorized access
+        '503':
+          description: Service unavailable
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    description: Service unavailable
